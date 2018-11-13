@@ -2,6 +2,7 @@ package view;
 
 import controller.ProdutoController;
 import java.util.ArrayList;
+import java.util.IllegalFormatException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -39,12 +40,6 @@ public class ProdutoView extends javax.swing.JFrame {
         tmProdutos.addColumn("VALOR");
         tmProdutos.addColumn("MODELO");
         tabelaProduto.setModel(tmProdutos);
-        
-        //Opção 2 - Descomentar linhas abaixo caso queira reutilizar o modelo padrão
-        //Resgato o modelo da tabela
-        //DefaultTableModel tmClientes = (DefaultTableModel) this.tblClientes.getModel();
-        ////Limpo a tabela, excluindo todas as linhas
-        //tmClientes.setRowCount(0);
         
         //Para cada cliente resgatado do banco de dados, atualizo a tabela
         for(String[] p:linhasProdutos){
@@ -98,8 +93,6 @@ public class ProdutoView extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,"Somente número em double para o campo ano!");
             return false;
         }
-        
-        String modelo = this.ModeloTxt.getText();
         
         if(this.AnoTxt.getText().equalsIgnoreCase("")){
             JOptionPane.showMessageDialog(this,"Defina um ano para o produto!");
